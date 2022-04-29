@@ -30,12 +30,25 @@ public class Cliente {
         return email;
     }
 
-    public Endereço getEndereco() {
-        return endereco;
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
     }
-    
-    public void cadastrar(){
-        
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }
 
