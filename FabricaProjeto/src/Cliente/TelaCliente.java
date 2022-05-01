@@ -9,19 +9,32 @@ package Cliente;
  *
  * @author phdam
  */
-public class Tela_Cliente extends javax.swing.JFrame {
+public class TelaCliente extends javax.swing.JFrame {
 
     /**
      * Creates new form Cliente
      */
-    public Tela_Cliente() {
+    public TelaCliente() {
         initComponents();
     }
     
     Cliente cliente = new Cliente();
     
+    
     public void CadastraCliente(){
-        
+        cliente.setNomeCompleto(txtNome.getText());
+        cliente.setCpf(txtCpf.getText());   
+        cliente.setDataNascimento(txtDataNasc.getText());
+        cliente.setTelefone(txtTelefone.getText());
+        cliente.setEmail(txtEmail.getText());
+        cliente.setCep(txtCep.getText());
+        cliente.setRua(txtRua.getText());
+        cliente.setNumero(Integer.parseInt(txtNumero.getText()));
+        cliente.setBairro(txtBairro.getText());
+        cliente.setComplemento(txtComplemento.getText());
+        cliente.setCidade(txtCidade.getText());
+        cliente.setEstado(txtEstado.getText());
+        System.out.println("Efetuado com sucesso");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,7 +60,7 @@ public class Tela_Cliente extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtRua = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        TxtNumero = new javax.swing.JTextField();
+        txtNumero = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtBairro = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -78,6 +91,12 @@ public class Tela_Cliente extends javax.swing.JFrame {
 
         jLabel2.setText("Data de Nascimento");
 
+        txtDataNasc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataNascActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("CPF");
 
         jLabel5.setText("CEP");
@@ -88,6 +107,12 @@ public class Tela_Cliente extends javax.swing.JFrame {
 
         jLabel8.setText("Número");
 
+        txtNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumeroActionPerformed(evt);
+            }
+        });
+
         jLabel9.setText("Bairro");
 
         jLabel10.setText("Complemento");
@@ -97,6 +122,11 @@ public class Tela_Cliente extends javax.swing.JFrame {
         jLabel12.setText("Cidade");
 
         Cliente_registrar.setText("Registrar");
+        Cliente_registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cliente_registrarActionPerformed(evt);
+            }
+        });
 
         Cliente_limpar.setText("Limpar");
         Cliente_limpar.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +192,7 @@ public class Tela_Cliente extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TxtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel10)
@@ -219,7 +249,7 @@ public class Tela_Cliente extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(TxtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -253,6 +283,18 @@ public class Tela_Cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
+    private void txtDataNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascActionPerformed
+
+    private void txtNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumeroActionPerformed
+
+    private void Cliente_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cliente_registrarActionPerformed
+        CadastraCliente();
+    }//GEN-LAST:event_Cliente_registrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -270,21 +312,23 @@ public class Tela_Cliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela_Cliente().setVisible(true);
+                new TelaCliente().setVisible(true);
             }
         });
     }
@@ -295,7 +339,6 @@ public class Tela_Cliente extends javax.swing.JFrame {
     private javax.swing.JButton Cliente_prox;
     private javax.swing.JButton Cliente_registrar;
     private javax.swing.JButton Cliente_voltar;
-    private javax.swing.JTextField TxtNumero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -310,16 +353,17 @@ public class Tela_Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField txtBairro;
-    private javax.swing.JTextField txtCep;
-    private javax.swing.JTextField txtCidade;
-    private javax.swing.JTextField txtComplemento;
-    private javax.swing.JTextField txtCpf;
-    private javax.swing.JTextField txtDataNasc;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtEstado;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtRua;
-    private javax.swing.JTextField txtTelefone;
+    protected javax.swing.JTextField txtBairro;
+    protected javax.swing.JTextField txtCep;
+    protected javax.swing.JTextField txtCidade;
+    protected javax.swing.JTextField txtComplemento;
+    protected javax.swing.JTextField txtCpf;
+    protected javax.swing.JTextField txtDataNasc;
+    protected javax.swing.JTextField txtEmail;
+    protected javax.swing.JTextField txtEstado;
+    protected javax.swing.JTextField txtNome;
+    protected javax.swing.JTextField txtNumero;
+    protected javax.swing.JTextField txtRua;
+    protected javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }
