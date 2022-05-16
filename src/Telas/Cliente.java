@@ -1,5 +1,5 @@
 package Telas;
-import Cliente.CadastroCliente;
+import Objetos.CadastroCliente;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

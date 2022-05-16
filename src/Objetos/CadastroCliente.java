@@ -1,5 +1,5 @@
 
-package Cliente;
+package Objetos;
 
 public class CadastroCliente {
     
