@@ -47,10 +47,6 @@ public class Tela_Principal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -165,19 +161,8 @@ public class Tela_Principal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(jLabel3)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
-
-        jMenu2.setText("Cliente");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Produto");
-        jMenuBar1.add(jMenu3);
-
-        jMenu6.setText("Usuário");
-        jMenuBar1.add(jMenu6);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -256,12 +241,8 @@ public class Tela_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
