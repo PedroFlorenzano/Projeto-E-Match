@@ -19,20 +19,20 @@ public class User extends javax.swing.JFrame {
         initComponents();
     }
     
-    /*
-    public void cadastraCliente(){
-        cliente.setNomeCompleto(txtnomeCompleto.getText());
-        cliente.setCpf(txtCpf.getText());   
-        cliente.setDataNascimento(txtDataNasc.getText());
-        cliente.setSexo((String)txtSexo.getSelectedItem());
-        cliente.setTelefone(txtTelefone.getText());
-        cliente.setCep(txtCep.getText());
-        cliente.setEndereco(txtEndereco.getText());
-        cliente.setCidade(txtCidade.getText());
-        cliente.setEstado((String)txtEstado.getSelectedItem());
-        System.out.println("Efetuado com sucesso");
-    }
-    */
+    
+    //public void cadastraCliente(){
+       // liente.setNomeCompleto(txtnomeCompleto.getText());
+        //cliente.setCpf(txtCpf.getText());   
+        //cliente.setDataNascimento(txtDataNasc.getText());
+        //cliente.setSexo((String)txtSexo.getSelectedItem());
+        //cliente.setTelefone(txtTelefone.getText());
+        //cliente.setCep(txtCep.getText());
+        //cliente.setEndereco(txtEndereco.getText());
+        //cliente.setCidade(txtCidade.getText());
+        //cliente.setEstado((String)txtEstado.getSelectedItem());
+        //System.out.println("Efetuado com sucesso");
+    //}
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
