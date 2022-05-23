@@ -21,7 +21,7 @@ public class User extends javax.swing.JFrame {
 
     CadastroCliente cliente = new CadastroCliente();
     
-    
+    /*
     public void cadastraCliente(){
         cliente.setNomeCompleto(txtnomeCompleto.getText());
         cliente.setCpf(txtCpf.getText());   
@@ -34,6 +34,8 @@ public class User extends javax.swing.JFrame {
         cliente.setEstado((String)txtEstado.getSelectedItem());
         System.out.println("Efetuado com sucesso");
     }
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,32 +68,36 @@ public class User extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        txtnomeCompleto = new javax.swing.JTextField();
+        txtnomeCompletoU = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        txtCpf = new javax.swing.JFormattedTextField();
+        txtCpfU = new javax.swing.JFormattedTextField();
         jLabel21 = new javax.swing.JLabel();
-        txtDataNasc = new javax.swing.JTextField();
-        txtCpf1 = new javax.swing.JFormattedTextField();
+        txtDataNascU = new javax.swing.JTextField();
+        txtRGU = new javax.swing.JFormattedTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtSenhaU = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtSenha2U = new javax.swing.JPasswordField();
         jPanel5 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        consultaCpf1 = new javax.swing.JFormattedTextField();
+        txtConsultaCpfU = new javax.swing.JFormattedTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        consultaNome1 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        txtNomeBuscaU = new javax.swing.JTextField();
+        bDeletarU = new javax.swing.JButton();
+        bAtualizarU = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        txtBuscaNascU = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        txtBuscaCpfU = new javax.swing.JFormattedTextField();
+        jLabel20 = new javax.swing.JLabel();
+        txtBuscaRgU = new javax.swing.JFormattedTextField();
+        bBuscarU = new javax.swing.JButton();
+        bLimparU = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuCliente = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -257,13 +263,13 @@ public class User extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de Clientes"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de Usuários"));
 
         jLabel14.setText("Nome");
 
-        txtnomeCompleto.addActionListener(new java.awt.event.ActionListener() {
+        txtnomeCompletoU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnomeCompletoActionPerformed(evt);
+                txtnomeCompletoUActionPerformed(evt);
             }
         });
 
@@ -313,26 +319,26 @@ public class User extends javax.swing.JFrame {
         );
 
         try {
-            txtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtCpfU.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCpf.addActionListener(new java.awt.event.ActionListener() {
+        txtCpfU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpfActionPerformed(evt);
+                txtCpfUActionPerformed(evt);
             }
         });
 
         jLabel21.setText("Data de Nascimento");
 
         try {
-            txtCpf1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtRGU.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCpf1.addActionListener(new java.awt.event.ActionListener() {
+        txtRGU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpf1ActionPerformed(evt);
+                txtRGUActionPerformed(evt);
             }
         });
 
@@ -342,7 +348,7 @@ public class User extends javax.swing.JFrame {
 
         jLabel2.setText("Digite novamente a sua senha:");
 
-        jPasswordField1.setText("jPasswordField1");
+        txtSenha2U.setText("jPasswordField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -351,8 +357,10 @@ public class User extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtnomeCompleto)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(txtnomeCompletoU)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(57, 283, Short.MAX_VALUE))
@@ -364,11 +372,11 @@ public class User extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtDataNasc)
-                    .addComponent(txtCpf)
-                    .addComponent(txtCpf1)
-                    .addComponent(jTextField1)
-                    .addComponent(jPasswordField1)))
+                    .addComponent(txtDataNascU)
+                    .addComponent(txtCpfU)
+                    .addComponent(txtRGU)
+                    .addComponent(txtSenhaU)
+                    .addComponent(txtSenha2U)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,40 +384,40 @@ public class User extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtnomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtnomeCompletoU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDataNascU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCpfU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCpf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRGU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSenhaU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(txtSenha2U, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Busca de Clientes"));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Busca de Usuários"));
         jPanel5.setForeground(new java.awt.Color(153, 255, 153));
 
         jLabel23.setText("CPF");
 
         try {
-            consultaCpf1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtConsultaCpfU.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -419,29 +427,55 @@ public class User extends javax.swing.JFrame {
 
         jLabel24.setText("Nome");
 
-        consultaNome1.setOpaque(false);
+        txtNomeBuscaU.setOpaque(false);
 
-        jButton7.setBackground(new java.awt.Color(102, 102, 102));
-        jButton7.setForeground(new java.awt.Color(153, 255, 153));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/delete.png"))); // NOI18N
-        jButton7.setText("Deletar");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        bDeletarU.setBackground(new java.awt.Color(102, 102, 102));
+        bDeletarU.setForeground(new java.awt.Color(153, 255, 153));
+        bDeletarU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/delete.png"))); // NOI18N
+        bDeletarU.setText("Deletar");
+        bDeletarU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                bDeletarUActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(102, 102, 102));
-        jButton8.setForeground(new java.awt.Color(153, 255, 153));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/updated.png"))); // NOI18N
-        jButton8.setText("Atualizar");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        bAtualizarU.setBackground(new java.awt.Color(102, 102, 102));
+        bAtualizarU.setForeground(new java.awt.Color(153, 255, 153));
+        bAtualizarU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/updated.png"))); // NOI18N
+        bAtualizarU.setText("Atualizar");
+        bAtualizarU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                bAtualizarUActionPerformed(evt);
             }
         });
 
         jLabel29.setText("Data de Nascimento");
+
+        jLabel19.setText("CPF");
+
+        try {
+            txtBuscaCpfU.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtBuscaCpfU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscaCpfUActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("RG");
+
+        try {
+            txtBuscaRgU.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtBuscaRgU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscaRgUActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -450,18 +484,23 @@ public class User extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(consultaNome1)
+                    .addComponent(txtNomeBuscaU)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                            .addComponent(bAtualizarU, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel24)
                                 .addGap(0, 151, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField5)
+                        .addComponent(bDeletarU, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBuscaRgU)
+                    .addComponent(txtBuscaCpfU)
+                    .addComponent(txtBuscaNascU)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel29)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel29))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -471,34 +510,42 @@ public class User extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(consultaNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtNomeBuscaU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(323, 323, 323)
+                .addComponent(txtBuscaNascU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtBuscaCpfU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtBuscaRgU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(221, 221, 221)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bDeletarU, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(bAtualizarU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jButton9.setBackground(new java.awt.Color(102, 102, 102));
-        jButton9.setForeground(new java.awt.Color(153, 255, 153));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/binoculars.png"))); // NOI18N
-        jButton9.setText("Buscar");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        bBuscarU.setBackground(new java.awt.Color(102, 102, 102));
+        bBuscarU.setForeground(new java.awt.Color(153, 255, 153));
+        bBuscarU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/binoculars.png"))); // NOI18N
+        bBuscarU.setText("Buscar");
+        bBuscarU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                bBuscarUActionPerformed(evt);
             }
         });
 
-        jButton10.setBackground(new java.awt.Color(102, 102, 102));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/limpar-limpo.png"))); // NOI18N
-        jButton10.setText("Limpar");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        bLimparU.setBackground(new java.awt.Color(102, 102, 102));
+        bLimparU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/limpar-limpo.png"))); // NOI18N
+        bLimparU.setText("Limpar");
+        bLimparU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                bLimparUActionPerformed(evt);
             }
         });
 
@@ -513,11 +560,11 @@ public class User extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel23)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(consultaCpf1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtConsultaCpfU, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton9)
+                        .addComponent(bBuscarU)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bLimparU, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -527,9 +574,9 @@ public class User extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(consultaCpf1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton10))
+                    .addComponent(txtConsultaCpfU, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bBuscarU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bLimparU))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -568,6 +615,9 @@ public class User extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jPanel1.getAccessibleContext().setAccessibleName("Cadastro de Usuários");
+        jPanel1.getAccessibleContext().setAccessibleDescription("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -587,53 +637,53 @@ public class User extends javax.swing.JFrame {
         //limparCamposBusca();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void bDeletarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeletarUActionPerformed
         //deletarCliente(novoCliente);
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_bDeletarUActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void bAtualizarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarUActionPerformed
         //atualizarCliente(novoCliente);
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_bAtualizarUActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void bBuscarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarUActionPerformed
         //buscarCliente(novoCliente);
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_bBuscarUActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void bLimparUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparUActionPerformed
         //limparCamposBusca();
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_bLimparUActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //limparCamposCadastro();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        cadastraCliente();
-        txtnomeCompleto.setText("");
-        txtCpf.setText("");   
-        txtDataNasc.setText("");
-        txtTelefone.setText("");
-        txtCep.setText("");
-        txtEndereco.setText("");
-        txtCidade.setText("");
-        
+      
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void txtnomeCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomeCompletoActionPerformed
+    private void txtnomeCompletoUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomeCompletoUActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnomeCompletoActionPerformed
+    }//GEN-LAST:event_txtnomeCompletoUActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
+    private void txtCpfUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfUActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCpfActionPerformed
+    }//GEN-LAST:event_txtCpfUActionPerformed
 
-    private void txtCpf1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpf1ActionPerformed
+    private void txtRGUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRGUActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCpf1ActionPerformed
+    }//GEN-LAST:event_txtRGUActionPerformed
+
+    private void txtBuscaCpfUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscaCpfUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscaCpfUActionPerformed
+
+    private void txtBuscaRgUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscaRgUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscaRgUActionPerformed
 
     /**
      * @param args the command line arguments
@@ -672,26 +722,22 @@ public class User extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAtualizarU;
+    private javax.swing.JButton bBuscarU;
+    private javax.swing.JButton bDeletarU;
+    private javax.swing.JButton bLimparU;
     private javax.swing.JTextField consultaCidade;
     private javax.swing.JFormattedTextField consultaCpf;
-    private javax.swing.JFormattedTextField consultaCpf1;
     private javax.swing.JTextArea consultaEndereco;
     private javax.swing.JTextField consultaEstado;
     private javax.swing.JTextField consultaNome;
-    private javax.swing.JTextField consultaNome1;
     private javax.swing.JTextField consultaSexo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -699,9 +745,9 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -719,18 +765,19 @@ public class User extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JMenu menuCliente;
-    private javax.swing.JFormattedTextField txtCpf;
-    private javax.swing.JFormattedTextField txtCpf1;
-    private javax.swing.JTextField txtDataNasc;
-    private javax.swing.JTextField txtnomeCompleto;
-    private javax.swing.JTextField txtnomeCompleto1;
+    private javax.swing.JFormattedTextField txtBuscaCpfU;
+    private javax.swing.JTextField txtBuscaNascU;
+    private javax.swing.JFormattedTextField txtBuscaRgU;
+    private javax.swing.JFormattedTextField txtConsultaCpfU;
+    private javax.swing.JFormattedTextField txtCpfU;
+    private javax.swing.JTextField txtDataNascU;
+    private javax.swing.JTextField txtNomeBuscaU;
+    private javax.swing.JFormattedTextField txtRGU;
+    private javax.swing.JPasswordField txtSenha2U;
+    private javax.swing.JTextField txtSenhaU;
+    private javax.swing.JTextField txtnomeCompletoU;
     // End of variables declaration//GEN-END:variables
 }

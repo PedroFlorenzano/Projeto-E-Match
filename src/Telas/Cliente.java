@@ -78,8 +78,8 @@ public class Cliente extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         txtEstado = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        bCadastrar = new javax.swing.JButton();
+        bLimpar = new javax.swing.JButton();
         txtCpf = new javax.swing.JFormattedTextField();
         jLabel20 = new javax.swing.JLabel();
         txtCep = new javax.swing.JTextField();
@@ -89,29 +89,29 @@ public class Cliente extends javax.swing.JFrame {
         txtTelefone = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        consultaCpf1 = new javax.swing.JFormattedTextField();
+        txtconsultaCpfCliente = new javax.swing.JFormattedTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        consultaNome1 = new javax.swing.JTextField();
+        txtbuscaNome = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        consultaSexo1 = new javax.swing.JTextField();
+        txtConsultaSexo = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        consultaEndereco1 = new javax.swing.JTextArea();
+        txtBuscaEndereco = new javax.swing.JTextArea();
         jLabel27 = new javax.swing.JLabel();
-        consultaCidade1 = new javax.swing.JTextField();
+        txtBuscaCidade = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        consultaEstado1 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        txtBuscaEstado = new javax.swing.JTextField();
+        bDeletarCliente = new javax.swing.JButton();
+        bAtualizarCliente = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtNascBusca = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtTelefoneBusca = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        txtBuscaCep = new javax.swing.JTextField();
+        bBuscar = new javax.swing.JButton();
+        bLimparBusca = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuCliente = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -312,23 +312,23 @@ public class Cliente extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
-        jButton2.setForeground(new java.awt.Color(153, 255, 153));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mole.png"))); // NOI18N
-        jButton2.setText("Cadastrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        bCadastrar.setBackground(new java.awt.Color(102, 102, 102));
+        bCadastrar.setForeground(new java.awt.Color(153, 255, 153));
+        bCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mole.png"))); // NOI18N
+        bCadastrar.setText("Cadastrar");
+        bCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                bCadastrarActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setForeground(new java.awt.Color(153, 255, 153));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/limpar-limpo.png"))); // NOI18N
-        jButton1.setText("  Limpar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bLimpar.setBackground(new java.awt.Color(102, 102, 102));
+        bLimpar.setForeground(new java.awt.Color(153, 255, 153));
+        bLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/limpar-limpo.png"))); // NOI18N
+        bLimpar.setText("  Limpar");
+        bLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bLimparActionPerformed(evt);
             }
         });
 
@@ -338,9 +338,9 @@ public class Cliente extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
         jPanel2Layout.setVerticalGroup(
@@ -348,8 +348,8 @@ public class Cliente extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -466,7 +466,7 @@ public class Cliente extends javax.swing.JFrame {
         jLabel23.setText("CPF");
 
         try {
-            consultaCpf1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtconsultaCpfCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -476,45 +476,45 @@ public class Cliente extends javax.swing.JFrame {
 
         jLabel24.setText("Nome");
 
-        consultaNome1.setOpaque(false);
+        txtbuscaNome.setOpaque(false);
 
         jLabel25.setText("Sexo");
 
-        consultaSexo1.setOpaque(false);
+        txtConsultaSexo.setOpaque(false);
 
         jLabel26.setText("Endereço");
 
-        consultaEndereco1.setColumns(20);
-        consultaEndereco1.setRows(5);
-        consultaEndereco1.setOpaque(false);
-        jScrollPane3.setViewportView(consultaEndereco1);
+        txtBuscaEndereco.setColumns(20);
+        txtBuscaEndereco.setRows(5);
+        txtBuscaEndereco.setOpaque(false);
+        jScrollPane3.setViewportView(txtBuscaEndereco);
 
         jLabel27.setText("Cidade");
 
-        consultaCidade1.setOpaque(false);
+        txtBuscaCidade.setOpaque(false);
 
         jLabel28.setText("Estado");
 
-        consultaEstado1.setOpaque(false);
-        consultaEstado1.setPreferredSize(new java.awt.Dimension(5, 20));
+        txtBuscaEstado.setOpaque(false);
+        txtBuscaEstado.setPreferredSize(new java.awt.Dimension(5, 20));
 
-        jButton7.setBackground(new java.awt.Color(102, 102, 102));
-        jButton7.setForeground(new java.awt.Color(153, 255, 153));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/delete.png"))); // NOI18N
-        jButton7.setText("Deletar");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        bDeletarCliente.setBackground(new java.awt.Color(102, 102, 102));
+        bDeletarCliente.setForeground(new java.awt.Color(153, 255, 153));
+        bDeletarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/delete.png"))); // NOI18N
+        bDeletarCliente.setText("Deletar");
+        bDeletarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                bDeletarClienteActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(102, 102, 102));
-        jButton8.setForeground(new java.awt.Color(153, 255, 153));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/updated.png"))); // NOI18N
-        jButton8.setText("Atualizar");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        bAtualizarCliente.setBackground(new java.awt.Color(102, 102, 102));
+        bAtualizarCliente.setForeground(new java.awt.Color(153, 255, 153));
+        bAtualizarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/updated.png"))); // NOI18N
+        bAtualizarCliente.setText("Atualizar");
+        bAtualizarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                bAtualizarClienteActionPerformed(evt);
             }
         });
 
@@ -524,9 +524,9 @@ public class Cliente extends javax.swing.JFrame {
 
         jLabel31.setText("CEP");
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        txtBuscaCep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                txtBuscaCepActionPerformed(evt);
             }
         });
 
@@ -542,13 +542,13 @@ public class Cliente extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(consultaNome1)
-                            .addComponent(consultaSexo1)
+                            .addComponent(txtbuscaNome)
+                            .addComponent(txtConsultaSexo)
                             .addComponent(jScrollPane3)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(consultaCidade1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bAtualizarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtBuscaCidade, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel24)
@@ -559,11 +559,11 @@ public class Cliente extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel28)
-                                    .addComponent(consultaEstado1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField7)
+                                    .addComponent(txtBuscaEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bDeletarCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtNascBusca)
+                            .addComponent(txtTelefoneBusca)
+                            .addComponent(txtBuscaCep)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel29)
@@ -577,23 +577,23 @@ public class Cliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(consultaNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtbuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNascBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel30)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTelefoneBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(consultaSexo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtConsultaSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscaCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -604,31 +604,31 @@ public class Cliente extends javax.swing.JFrame {
                     .addComponent(jLabel28))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(consultaCidade1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(consultaEstado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBuscaCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuscaEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(bDeletarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(bAtualizarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jButton9.setBackground(new java.awt.Color(102, 102, 102));
-        jButton9.setForeground(new java.awt.Color(153, 255, 153));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/binoculars.png"))); // NOI18N
-        jButton9.setText("Buscar");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        bBuscar.setBackground(new java.awt.Color(102, 102, 102));
+        bBuscar.setForeground(new java.awt.Color(153, 255, 153));
+        bBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/binoculars.png"))); // NOI18N
+        bBuscar.setText("Buscar");
+        bBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                bBuscarActionPerformed(evt);
             }
         });
 
-        jButton10.setBackground(new java.awt.Color(102, 102, 102));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/limpar-limpo.png"))); // NOI18N
-        jButton10.setText("Limpar");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        bLimparBusca.setBackground(new java.awt.Color(102, 102, 102));
+        bLimparBusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/limpar-limpo.png"))); // NOI18N
+        bLimparBusca.setText("Limpar");
+        bLimparBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                bLimparBuscaActionPerformed(evt);
             }
         });
 
@@ -643,12 +643,12 @@ public class Cliente extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel23)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(consultaCpf1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtconsultaCpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton9)
+                        .addComponent(bBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 14, Short.MAX_VALUE)))
+                        .addComponent(bLimparBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -657,9 +657,9 @@ public class Cliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(consultaCpf1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton10))
+                    .addComponent(txtconsultaCpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bLimparBusca))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -717,35 +717,35 @@ public class Cliente extends javax.swing.JFrame {
         //limparCamposBusca();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void bDeletarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeletarClienteActionPerformed
         //deletarCliente(novoCliente);
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_bDeletarClienteActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void bAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarClienteActionPerformed
         //atualizarCliente(novoCliente);
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_bAtualizarClienteActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
         //buscarCliente(novoCliente);
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_bBuscarActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void bLimparBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparBuscaActionPerformed
         //limparCamposBusca();
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_bLimparBuscaActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void txtBuscaCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscaCepActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_txtBuscaCepActionPerformed
 
     private void txtCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCepActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCepActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparActionPerformed
         //limparCamposCadastro();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_bLimparActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
         cadastraCliente();
         txtnomeCompleto.setText("");
         txtCpf.setText("");   
@@ -755,7 +755,7 @@ public class Cliente extends javax.swing.JFrame {
         txtEndereco.setText("");
         txtCidade.setText("");
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_bCadastrarActionPerformed
 
     private void txtEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstadoActionPerformed
         // TODO add your handling code here:
@@ -805,28 +805,22 @@ public class Cliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bAtualizarCliente;
+    private javax.swing.JButton bBuscar;
+    private javax.swing.JButton bCadastrar;
+    private javax.swing.JButton bDeletarCliente;
+    private javax.swing.JButton bLimpar;
+    private javax.swing.JButton bLimparBusca;
     private javax.swing.JTextField consultaCidade;
-    private javax.swing.JTextField consultaCidade1;
     private javax.swing.JFormattedTextField consultaCpf;
-    private javax.swing.JFormattedTextField consultaCpf1;
     private javax.swing.JTextArea consultaEndereco;
-    private javax.swing.JTextArea consultaEndereco1;
     private javax.swing.JTextField consultaEstado;
-    private javax.swing.JTextField consultaEstado1;
     private javax.swing.JTextField consultaNome;
-    private javax.swing.JTextField consultaNome1;
     private javax.swing.JTextField consultaSexo;
-    private javax.swing.JTextField consultaSexo1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -865,18 +859,24 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JMenu menuCliente;
+    private javax.swing.JTextField txtBuscaCep;
+    private javax.swing.JTextField txtBuscaCidade;
+    private javax.swing.JTextArea txtBuscaEndereco;
+    private javax.swing.JTextField txtBuscaEstado;
     private javax.swing.JTextField txtCep;
     private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtConsultaSexo;
     private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JTextField txtDataNasc;
     private javax.swing.JTextArea txtEndereco;
     private javax.swing.JComboBox<String> txtEstado;
+    private javax.swing.JTextField txtNascBusca;
     private javax.swing.JComboBox<String> txtSexo;
     private javax.swing.JTextField txtTelefone;
+    private javax.swing.JTextField txtTelefoneBusca;
+    private javax.swing.JTextField txtbuscaNome;
+    private javax.swing.JFormattedTextField txtconsultaCpfCliente;
     private javax.swing.JTextField txtnomeCompleto;
     // End of variables declaration//GEN-END:variables
 }
