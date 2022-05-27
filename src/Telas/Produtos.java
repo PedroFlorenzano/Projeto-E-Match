@@ -4,6 +4,9 @@
  */
 package Telas;
 
+import Conexao.ProdutoDAO;
+import Objetos.Produto;
+
 /**
  *
  * @author phdam
@@ -428,10 +431,18 @@ public class Produtos extends javax.swing.JFrame {
     }//GEN-LAST:event_bLimparCadastroActionPerformed
 
     private void bCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarProdutoActionPerformed
+        Produto p = new Produto();
+        ProdutoDAO dao = new ProdutoDAO();
+        p.setNome(txtProduto.getText());
+        p.setDescricao(txtDescricao.getText());
+        p.setPreco_custo(Float.parseFloat(txtCusto.getText()));
+        p.setPreco_venda(Float.parseFloat(txtVenda.getText()));
+        p.setTamanho_camisa(txtTamanho.getText());
+        dao.create(p);
     }//GEN-LAST:event_bCadastrarProdutoActionPerformed
 
     private void txtconsultaDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtconsultaDescricaoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtconsultaDescricaoActionPerformed
 
     private void bLimparConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparConsultarActionPerformed
