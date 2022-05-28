@@ -1,7 +1,6 @@
 package Telas;
 
-
-import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -18,7 +17,9 @@ public class Tela_Principal extends javax.swing.JFrame {
      * Creates new form Tela_Principal
      */
     public Tela_Principal() {
+        setResizable(false);
         initComponents();
+        
         //setBackground(new Color (0,0,0,0));
     }
 
@@ -63,6 +64,7 @@ public class Tela_Principal extends javax.swing.JFrame {
         jMenuBar2.add(jMenu5);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/Img/ematch.png")).getImage());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -181,6 +183,7 @@ public class Tela_Principal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void bCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastroClienteActionPerformed
@@ -252,4 +255,5 @@ public class Tela_Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
 }

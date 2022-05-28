@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,14 +45,14 @@ public class ProdutoDAO {
     public List<Produto> read(){
         
         Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stat = null;
+        PreparedStatement stmt = null;
         ResultSet rs = null;
         
-        List<Produto> produtos = new  ArrayLinkedList<>();
+        List<Produto> produtos = new  ArrayList<>();
         
         try {
-            stat = con.prepareStatement("SELECT * FROM Produto");
-            rs = stat.executeQuery();
+            stmt = con.prepareStatement("SELECT * FROM Produto");
+            rs = stmt.executeQuery();
             
             while(rs.next()){
                 
@@ -59,6 +60,7 @@ public class ProdutoDAO {
                 
                 produto.setId_produto(rs.getInt("id"));
                 produto.setNome(rs.getString("nome"));
+                produto.setDescricao(rs.getString("descricao"));
                 produto.setValor_custo(rs.getFloat("valor_custo"));
                 produto.setValor_venda(rs.getFloat("valor_venda"));
                 produto.setTamanho_camisa(rs.getString("tamanho"));
@@ -69,7 +71,7 @@ public class ProdutoDAO {
         } catch (SQLException ex) {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ConnectionFactory.CloseConnection(con, stat, rs);
+            ConnectionFactory.CloseConnection(con, stmt, rs);
         }
         
         return produtos;
