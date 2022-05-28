@@ -131,7 +131,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="txtDescricao" min="-2" pref="243" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtQtd" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -144,7 +144,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txtTamanho" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtFornecedor" alignment="0" pref="144" max="32767" attributes="0"/>
+                                      <Component id="txtFornecedor" alignment="0" pref="104" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -166,7 +166,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtDescricao" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtQtd" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="87" max="32767" attributes="0"/>
@@ -279,9 +279,9 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtTamanho">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel7">
+                <Component class="javax.swing.JLabel" name="txtQtd">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Fornecedor:"/>
+                    <Property name="text" type="java.lang.String" value="Quiantidade:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtFornecedor">

@@ -4,13 +4,18 @@ public class Produto {
 
     private Integer id_produto;
     private String nome;
-    private Float preco_custo;
-    private Float preco_venda;
+    private Float valor_custo;
+    private Float valor_venda;
     private String tamanho_camisa;
     private String descricao;
+    private Integer quantidade;
 
     public Integer getId_produto() {
         return id_produto;
+    }
+    
+    public void setId_produto(Integer id) {
+        this.id_produto = id;
     }
 
     public String getNome() {
@@ -29,20 +34,20 @@ public class Produto {
         this.tamanho_camisa = tamanho_camisa;
     }
 
-    public Float getPreco_custo() {
-        return preco_custo;
+    public Float getValor_custo() {
+        return valor_custo;
     }
 
-    public void setPreco_custo(Float preco_custo) {
-        this.preco_custo = preco_custo;
+    public void setValor_custo(Float preco_custo) {
+        this.valor_custo = preco_custo;
     }
 
-    public Float getPreco_venda() {
-        return preco_venda;
+    public Float getValor_venda() {
+        return valor_venda;
     }
 
-    public void setPreco_venda(Float preco_venda) {
-        this.preco_venda = preco_venda;
+    public void setValor_venda(Float preco_venda) {
+        this.valor_venda = preco_venda;
     }
 
     public String getDescricao() {
@@ -53,4 +58,13 @@ public class Produto {
         this.descricao = descricao;
     }
 
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    
 }

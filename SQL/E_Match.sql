@@ -1,10 +1,10 @@
 drop database if exists E_Match;
-CREATE DATABASE E_Match;
-USE E_Match;
+create database E_Match;
+use E_Match;
 
-CREATE TABLE IF NOT EXISTS Cliente
+create table if not exists Cliente
 (
-	id integer PRIMARY KEY AUTO_INCREMENT,
+	id integer primary key auto_increment,
     nome_completo varchar(50) not null,
     cpf char(14) not null,
     telefone varchar(10),
@@ -15,7 +15,8 @@ CREATE TABLE IF NOT EXISTS Cliente
     estado char(2) not null,
     email varchar(70)
 );
-CREATE TABLE IF NOT EXISTS Usuario (
+
+create table if not exists Usuario (
 	id int auto_increment primary key unique,
 	nome varchar(50) not null,
 	data_nasc date not null,
@@ -25,12 +26,13 @@ CREATE TABLE IF NOT EXISTS Usuario (
 );
 
 create table if not exists Produto  (
-id int auto_increment unique primary key ,
-nome varchar(100) not null,
-descricao varchar(250),
-valor_custo float (4,2) not null,
-valor_venda float (4,2) not null,
-tamanho char(3) not null 
+	id int auto_increment unique primary key ,
+	nome varchar(100) not null,
+	descricao varchar(250),
+	valor_custo float (5,2) not null,
+	valor_venda float (5,2) not null,
+	tamanho char(3) not null,
+    quantidade int not null
 );
 
 delimiter $
@@ -80,8 +82,8 @@ delimiter $
 create procedure novoProduto(
 	nome varchar(100),
 	descricao varchar(250),
-	valor_custo float (4,2),
-	valor_venda float (4,2),
+	valor_custo float (5,2),
+	valor_venda float (5,2),
 	tamanho char(3)
 )
 begin
@@ -93,8 +95,8 @@ delimiter $
 create procedure updateProduto(
 	nome_up varchar(100),
 	descricao_up varchar(250),
-	valor_custo_up float (4,2),
-	valor_venda_up float (4,2),
+	valor_custo_up float (5,2),
+	valor_venda_up float (5,2),
 	tamanho_up char(3)
 )
 begin
