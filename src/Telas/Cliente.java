@@ -1,5 +1,13 @@
 package Telas;
+import Conexao.ConnectionFactory;
+import Conexao.DAO;
 import Objetos.CadastroCliente;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -23,18 +31,6 @@ public class Cliente extends javax.swing.JFrame {
     CadastroCliente cliente = new CadastroCliente();
     
     
-    public void cadastraCliente(){
-        cliente.setNomeCompleto(txtnomeCompleto.getText());
-        cliente.setCpf(txtCpf.getText());   
-        cliente.setDataNascimento(txtDataNasc.getText());
-        cliente.setSexo((String)txtSexo.getSelectedItem());
-        cliente.setTelefone(txtTelefone.getText());
-        cliente.setCep(txtCep.getText());
-        cliente.setEndereco(txtEndereco.getText());
-        cliente.setCidade(txtCidade.getText());
-        cliente.setEstado((String)txtEstado.getSelectedItem());
-        System.out.println("Efetuado com sucesso");
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -90,12 +86,12 @@ public class Cliente extends javax.swing.JFrame {
         txtTelefone = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        txtconsultaCpfCliente = new javax.swing.JFormattedTextField();
+        txtConsultaCpf = new javax.swing.JFormattedTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        txtbuscaNome = new javax.swing.JTextField();
+        txtBuscaNome = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        txtConsultaSexo = new javax.swing.JTextField();
+        txtBuscaSexo = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtBuscaEndereco = new javax.swing.JTextArea();
@@ -106,9 +102,9 @@ public class Cliente extends javax.swing.JFrame {
         bDeletarCliente = new javax.swing.JButton();
         bAtualizarCliente = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
-        txtNascBusca = new javax.swing.JTextField();
+        txtBuscaNasc = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        txtTelefoneBusca = new javax.swing.JTextField();
+        txtBuscaTelefone = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         txtBuscaCep = new javax.swing.JTextField();
         bBuscar = new javax.swing.JButton();
@@ -467,7 +463,7 @@ public class Cliente extends javax.swing.JFrame {
         jLabel23.setText("CPF");
 
         try {
-            txtconsultaCpfCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtConsultaCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -477,11 +473,11 @@ public class Cliente extends javax.swing.JFrame {
 
         jLabel24.setText("Nome");
 
-        txtbuscaNome.setOpaque(false);
+        txtBuscaNome.setOpaque(false);
 
         jLabel25.setText("Sexo");
 
-        txtConsultaSexo.setOpaque(false);
+        txtBuscaSexo.setOpaque(false);
 
         jLabel26.setText("Endereço");
 
@@ -543,8 +539,8 @@ public class Cliente extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtbuscaNome)
-                            .addComponent(txtConsultaSexo)
+                            .addComponent(txtBuscaNome)
+                            .addComponent(txtBuscaSexo)
                             .addComponent(jScrollPane3)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -562,8 +558,8 @@ public class Cliente extends javax.swing.JFrame {
                                     .addComponent(jLabel28)
                                     .addComponent(txtBuscaEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(bDeletarCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txtNascBusca)
-                            .addComponent(txtTelefoneBusca)
+                            .addComponent(txtBuscaNasc)
+                            .addComponent(txtBuscaTelefone)
                             .addComponent(txtBuscaCep)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -578,19 +574,19 @@ public class Cliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtbuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNascBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscaNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel30)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTelefoneBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscaTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtConsultaSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscaSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addComponent(jLabel31)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -644,7 +640,7 @@ public class Cliente extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel23)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtconsultaCpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtConsultaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -658,7 +654,7 @@ public class Cliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(txtconsultaCpfCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtConsultaCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bLimparBusca))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -728,11 +724,32 @@ public class Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bAtualizarClienteActionPerformed
 
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
-        //buscarCliente(novoCliente);
+
+        DAO dao = new DAO();
+        
+        for(CadastroCliente c : dao.readBuscaCliente(txtConsultaCpf.getText())){
+            
+            txtBuscaNome.setText(c.getNomeCompleto());
+            txtBuscaNasc.setText(c.getDataNascimento());
+            txtBuscaTelefone.setText(c.getTelefone());
+            txtBuscaSexo.setText(c.getSexo());
+            txtBuscaCep.setText(c.getCep());
+            txtBuscaEndereco.setText(c.getEndereco());
+            txtBuscaCidade.setText(c.getCidade());
+            txtBuscaEstado.setText(c.getEstado());
+        }
     }//GEN-LAST:event_bBuscarActionPerformed
 
     private void bLimparBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparBuscaActionPerformed
-        //limparCamposBusca();
+        txtConsultaCpf.setText("");
+        txtBuscaNome.setText("");
+        txtBuscaNasc.setText("");
+        txtBuscaTelefone.setText("");
+        txtBuscaSexo.setText("");
+        txtBuscaCep.setText("");
+        txtBuscaEndereco.setText("");
+        txtBuscaCidade.setText("");
+        txtBuscaEstado.setText("");
     }//GEN-LAST:event_bLimparBuscaActionPerformed
 
     private void txtBuscaCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscaCepActionPerformed
@@ -748,7 +765,20 @@ public class Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_bLimparActionPerformed
 
     private void bCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarActionPerformed
-        cadastraCliente();
+        CadastroCliente c = new CadastroCliente();
+        DAO dao = new DAO();
+        
+        c.setNomeCompleto(txtnomeCompleto.getText());
+        c.setCpf(txtCpf.getText());   
+        c.setDataNascimento(txtDataNasc.getText());
+        c.setSexo((String)txtSexo.getSelectedItem());
+        c.setTelefone(txtTelefone.getText());
+        c.setCep(txtCep.getText());
+        c.setEndereco(txtEndereco.getText());
+        c.setCidade(txtCidade.getText());
+        c.setEstado((String)txtEstado.getSelectedItem());
+        dao.createCliente(c);
+        
         txtnomeCompleto.setText("");
         txtCpf.setText("");   
         txtDataNasc.setText("");
@@ -866,19 +896,19 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtBuscaCidade;
     private javax.swing.JTextArea txtBuscaEndereco;
     private javax.swing.JTextField txtBuscaEstado;
+    private javax.swing.JTextField txtBuscaNasc;
+    private javax.swing.JTextField txtBuscaNome;
+    private javax.swing.JTextField txtBuscaSexo;
+    private javax.swing.JTextField txtBuscaTelefone;
     private javax.swing.JTextField txtCep;
     private javax.swing.JTextField txtCidade;
-    private javax.swing.JTextField txtConsultaSexo;
+    private javax.swing.JFormattedTextField txtConsultaCpf;
     private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JTextField txtDataNasc;
     private javax.swing.JTextArea txtEndereco;
     private javax.swing.JComboBox<String> txtEstado;
-    private javax.swing.JTextField txtNascBusca;
     private javax.swing.JComboBox<String> txtSexo;
     private javax.swing.JTextField txtTelefone;
-    private javax.swing.JTextField txtTelefoneBusca;
-    private javax.swing.JTextField txtbuscaNome;
-    private javax.swing.JFormattedTextField txtconsultaCpfCliente;
     private javax.swing.JTextField txtnomeCompleto;
     // End of variables declaration//GEN-END:variables
 }

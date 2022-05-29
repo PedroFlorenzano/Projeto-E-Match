@@ -7,21 +7,18 @@ create table if not exists Cliente
 	id integer primary key auto_increment,
     nome_completo varchar(50) not null,
     cpf char(14) not null,
-    telefone varchar(10),
+    telefone varchar(11),
     data_nascimento date,
     sexo varchar(10),
+    cep char(11),
     endereco varchar(300) not null,
     cidade varchar(70) not null,
-    estado char(2) not null,
-    email varchar(70)
+    estado char(2) not null
 );
 
 create table if not exists Usuario (
 	id int auto_increment primary key unique,
 	nome varchar(50) not null,
-	data_nasc date not null,
-	rg char(12) not null unique,
-	cpf char(14) not null unique,
 	senha varchar(30) not null
 );
 
@@ -39,16 +36,16 @@ delimiter $
 create procedure novoCliente(
 	nome_completo varchar(50),
     cpf char(14),
-    telefone varchar(10),
+    telefone varchar(11),
     data_nascimento date,
     sexo varchar(10),
+    cep char(11),
     endereco varchar(300),
     cidade varchar(70),
-    estado char(2),
-    email varchar(70)
+    estado char(2)
 )
 begin
-	insert into Cliente values (null, nome_completo, cpf, telefone, data_nascimento, sexo, endereco, cidade, estado, email);
+	insert into Cliente values (null, nome_completo, cpf, telefone, data_nascimento, sexo, cep, endereco, cidade, estado);
 end$
 delimiter ;
 
@@ -59,10 +56,10 @@ create procedure updateCliente(
     telefone_up varchar(10),
     data_nascimento_up date,
     sexo_up varchar(10),
+    cep_up char(11),
     endereco_up varchar(300),
     cidade_up varchar(70),
-    estado_up char(2),
-    email_up varchar(70)
+    estado_up char(2)
 )
 begin
 	update Cliente set 
@@ -70,11 +67,11 @@ begin
     cpf = cpf_up, 
     telefone = telefone_up, 
     data_nascimento = data_nascimento_up, 
-    sexo = sexo_up, 
+    sexo = sexo_up,
+    cep = cep_up,
     endereco = endereco_up, 
     cidade = cidade_up, 
-    estado = estado_up, 
-    email = email_up;
+    estado = estado_up;
 end$
 delimiter ;
 
@@ -84,10 +81,11 @@ create procedure novoProduto(
 	descricao varchar(250),
 	valor_custo float (5,2),
 	valor_venda float (5,2),
-	tamanho char(3)
+	tamanho char(3),
+    quantidade int
 )
 begin
-	insert into Produto values (null, nome, descricao, valor_custo, valor_venda, tamanho);
+	insert into Produto values (null, nome, descricao, valor_custo, valor_venda, tamanho, quantidade);
 end$
 delimiter ;
 
@@ -97,7 +95,8 @@ create procedure updateProduto(
 	descricao_up varchar(250),
 	valor_custo_up float (5,2),
 	valor_venda_up float (5,2),
-	tamanho_up char(3)
+	tamanho_up char(3),
+    quantidade_up int
 )
 begin
 	update Produto set 
@@ -105,37 +104,30 @@ begin
     descricao = descricao_up, 
     valor_custo = valor_custo_up, 
     valor_venda = valor_venda_up,
-    tamanho = tamanho_up;
+    tamanho = tamanho_up,
+    quantidade = quantidade_up;
+    
 end$
 delimiter ;
 
 delimiter $
 create procedure novoUsuario(
 	nome varchar(50),
-	data_nasc date,
-	rg char(12),
-	cpf char(14),
 	senha varchar(30)
 )
 begin
-	insert into Usuario values (null, nome, data_nasc, rg, cpf, senha);
+	insert into Usuario values (null, nome, senha);
 end$
 delimiter ;
 
 delimiter $
 create procedure updateUsuario(
 	nome_up varchar(50),
-	data_nasc_up date,
-	rg_up char(12),
-	cpf_up char(14),
 	senha_up varchar(30)
 )
 begin
 	update Usuario set 
     nome = nome_up, 
-    data_nasc = data_nasc_up, 
-    rg = rg_up, 
-    cpf = cpf_up, 
     senha = senha_up;
 end$
 delimiter ;

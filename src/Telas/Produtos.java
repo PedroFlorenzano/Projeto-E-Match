@@ -4,7 +4,7 @@
  */
 package Telas;
 
-import Conexao.ProdutoDAO;
+import Conexao.DAO;
 import Objetos.Produto;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -29,9 +29,31 @@ public class Produtos extends javax.swing.JFrame {
         
         DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
         modelo.setNumRows(0);
-        ProdutoDAO pdao = new ProdutoDAO();
+        DAO pdao = new DAO();
         
         for (Produto p : pdao.read()) {
+            
+            modelo.addRow(new Object[]{
+                
+                p.getId_produto(),
+                p.getNome(),
+                p.getDescricao(),
+                p.getValor_custo(),
+                p.getValor_venda(),
+                p.getTamanho_camisa(),
+                p.getQuantidade()
+                
+            });
+        }
+    }
+    
+    public void readBuscaProduto(String nome){
+        
+        DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
+        modelo.setNumRows(0);
+        DAO pdao = new DAO();
+        
+        for (Produto p : pdao.readBusca(nome)) {
             
             modelo.addRow(new Object[]{
                 
@@ -77,7 +99,7 @@ public class Produtos extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        txtconsultaProduto = new javax.swing.JTextField();
+        txtConsultaProduto = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         bLimparConsultar = new javax.swing.JButton();
         bBuscar = new javax.swing.JButton();
@@ -294,7 +316,7 @@ public class Produtos extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtconsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtConsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(bLimparConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
@@ -312,7 +334,7 @@ public class Produtos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtconsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtConsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bLimparConsultar)
                     .addComponent(bBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -383,14 +405,14 @@ public class Produtos extends javax.swing.JFrame {
 
     private void bCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastrarProdutoActionPerformed
         Produto p = new Produto();
-        ProdutoDAO dao = new ProdutoDAO();
+        DAO dao = new DAO();
         p.setNome(txtProduto.getText());
         p.setDescricao(txtDescricao.getText());
         p.setValor_custo(Float.parseFloat(txtCusto.getText()));
         p.setValor_venda(Float.parseFloat(txtVenda.getText()));
         p.setTamanho_camisa(txtTamanho.getText());
         p.setQuantidade(Integer.parseInt(txtQtd.getText()));
-        dao.create(p);
+        dao.createProduto(p);
         readProduto();
         
         txtProduto.setText("");
@@ -402,11 +424,11 @@ public class Produtos extends javax.swing.JFrame {
     }//GEN-LAST:event_bCadastrarProdutoActionPerformed
 
     private void bLimparConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparConsultarActionPerformed
-
+        txtConsultaProduto.setText("");
     }//GEN-LAST:event_bLimparConsultarActionPerformed
     
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
-        //readProduto();
+        readBuscaProduto(txtConsultaProduto.getText());
     }//GEN-LAST:event_bBuscarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -471,6 +493,7 @@ public class Produtos extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTProdutos;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField txtConsultaProduto;
     private javax.swing.JTextField txtCusto;
     private javax.swing.JTextField txtDescricao;
     private javax.swing.JTextField txtProduto;
@@ -478,6 +501,5 @@ public class Produtos extends javax.swing.JFrame {
     private javax.swing.JLabel txtQuantidade;
     private javax.swing.JTextField txtTamanho;
     private javax.swing.JTextField txtVenda;
-    private javax.swing.JTextField txtconsultaProduto;
     // End of variables declaration//GEN-END:variables
 }
