@@ -4,6 +4,7 @@
  */
 package Telas;
 
+import Conexao.DAO;
 import javax.swing.JOptionPane;
 
 /**
@@ -191,11 +192,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_bExitActionPerformed
 
     private void bAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAcessarActionPerformed
-        // TODO add your handling code here:
-        if(txtNomeLogin.getText().equals("teste") && txtSenhaLogin.getText().equals("1234")){
-           new Tela_Principal().setVisible(true);
+        DAO dao = new DAO();
+        if(dao.checkLogin(txtNomeLogin.getText(), txtSenhaLogin.getText())){
+            new Tela_Principal().setVisible(true);
+            dispose();
         }else{
-        JOptionPane.showMessageDialog(null,"Acesso Negado");
+            JOptionPane.showMessageDialog(null,"Acesso Negado");
         }
     }//GEN-LAST:event_bAcessarActionPerformed
 

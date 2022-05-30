@@ -199,4 +199,33 @@ public class DAO {
             ConnectionFactory.CloseConnection(con, stat);
         }
     }
+    
+    public boolean checkLogin(String nome, String senha){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        boolean check = false;
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM Usuario WHERE nome = ? and senha = ?");
+            stmt.setString(1, nome);
+            stmt.setString(2, senha);
+            rs = stmt.executeQuery();
+            
+            if(rs.next()){
+               check = true;
+            }else{
+                
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionFactory.CloseConnection(con, stmt, rs);
+        }
+        
+        return check;
+    }
 }
