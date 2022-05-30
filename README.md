@@ -1,4 +1,4 @@
-# Projeto-E-Matc
+# Projeto-E-Match
 
 Projeto Java que aborda o funcionamento de um sistema de uma pequena empresa , esse projeto tem a seguinte estrutura:
 
