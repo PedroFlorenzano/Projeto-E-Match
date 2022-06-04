@@ -6,6 +6,7 @@ package Telas;
 
 import Conexao.DAO;
 import Objetos.Produto;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -110,6 +111,7 @@ public class Produtos extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/Img/ematch.png")).getImage());
         setUndecorated(true);
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
@@ -297,7 +299,7 @@ public class Produtos extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, true, true, true, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

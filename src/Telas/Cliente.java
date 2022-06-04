@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -271,6 +273,7 @@ public class Cliente extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/Img/ematch.png")).getImage());
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -716,11 +719,36 @@ public class Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void bDeletarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeletarClienteActionPerformed
-        //deletarCliente(novoCliente);
+        CadastroCliente c = new CadastroCliente();
+        DAO dao = new DAO();
+        
+        dao.deleteCliente(c, txtConsultaCpf.getText());
+        
+        txtConsultaCpf.setText("");
+        txtBuscaNome.setText("");
+        txtBuscaNasc.setText("");
+        txtBuscaTelefone.setText("");
+        txtBuscaSexo.setText("");
+        txtBuscaCep.setText("");
+        txtBuscaEndereco.setText("");
+        txtBuscaCidade.setText("");
+        txtBuscaEstado.setText("");
     }//GEN-LAST:event_bDeletarClienteActionPerformed
 
     private void bAtualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarClienteActionPerformed
-        //atualizarCliente(novoCliente);
+        CadastroCliente c = new CadastroCliente();
+        DAO dao = new DAO();
+        
+        c.setNomeCompleto(txtBuscaNome.getText()); 
+        c.setDataNascimento(txtBuscaNasc.getText());
+        c.setSexo((String)txtBuscaSexo.getText());
+        c.setTelefone(txtBuscaTelefone.getText());
+        c.setCep(txtBuscaCep.getText());
+        c.setEndereco(txtBuscaEndereco.getText());
+        c.setCidade(txtBuscaCidade.getText());
+        c.setEstado((String)txtBuscaEstado.getText());
+        dao.updateCliente(c, txtConsultaCpf.getText());
+        
     }//GEN-LAST:event_bAtualizarClienteActionPerformed
 
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
@@ -768,16 +796,21 @@ public class Cliente extends javax.swing.JFrame {
         CadastroCliente c = new CadastroCliente();
         DAO dao = new DAO();
         
-        c.setNomeCompleto(txtnomeCompleto.getText());
-        c.setCpf(txtCpf.getText());   
-        c.setDataNascimento(txtDataNasc.getText());
-        c.setSexo((String)txtSexo.getSelectedItem());
-        c.setTelefone(txtTelefone.getText());
-        c.setCep(txtCep.getText());
-        c.setEndereco(txtEndereco.getText());
-        c.setCidade(txtCidade.getText());
-        c.setEstado((String)txtEstado.getSelectedItem());
-        dao.createCliente(c);
+        if(dao.checkCpfCliente(txtCpf.getText())){
+            JOptionPane.showMessageDialog(null, "Cpf já existente!");
+        } else {
+            c.setNomeCompleto(txtnomeCompleto.getText());
+            c.setCpf(txtCpf.getText());   
+            c.setDataNascimento(txtDataNasc.getText());
+            c.setSexo((String)txtSexo.getSelectedItem());
+            c.setTelefone(txtTelefone.getText());
+            c.setCep(txtCep.getText());
+            c.setEndereco(txtEndereco.getText());
+            c.setCidade(txtCidade.getText());
+            c.setEstado((String)txtEstado.getSelectedItem());
+            dao.createCliente(c);
+        }
+        
         
         txtnomeCompleto.setText("");
         txtCpf.setText("");   

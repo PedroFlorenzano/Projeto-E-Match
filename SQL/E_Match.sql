@@ -19,7 +19,8 @@ create table if not exists Cliente
 create table if not exists Usuario (
 	id int auto_increment primary key unique,
 	nome varchar(50) not null,
-	senha varchar(30) not null
+	senha varchar(30) not null,
+    cpf char(14) not null
 );
 
 create table if not exists Produto  (
@@ -53,7 +54,7 @@ delimiter $
 create procedure updateCliente(
 	nome_completo_up varchar(50),
     cpf_up char(14),
-    telefone_up varchar(10),
+    telefone_up varchar(11),
     data_nascimento_up date,
     sexo_up varchar(10),
     cep_up char(11),
@@ -64,14 +65,15 @@ create procedure updateCliente(
 begin
 	update Cliente set 
     nome_completo = nome_completo_up,
-    cpf = cpf_up, 
     telefone = telefone_up, 
     data_nascimento = data_nascimento_up, 
     sexo = sexo_up,
     cep = cep_up,
     endereco = endereco_up, 
     cidade = cidade_up, 
-    estado = estado_up;
+    estado = estado_up
+    where cpf like cpf_up;
+    
 end$
 delimiter ;
 
@@ -113,21 +115,24 @@ delimiter ;
 delimiter $
 create procedure novoUsuario(
 	nome varchar(50),
-	senha varchar(30)
+	senha varchar(30),
+    cpf char(14)
 )
 begin
-	insert into Usuario values (null, nome, senha);
+	insert into Usuario values (null, nome, senha, cpf);
 end$
 delimiter ;
 
 delimiter $
 create procedure updateUsuario(
 	nome_up varchar(50),
-	senha_up varchar(30)
+	senha_up varchar(30),
+    cpf_up char(14)
 )
 begin
 	update Usuario set 
     nome = nome_up, 
-    senha = senha_up;
+    senha = senha_up
+    where cpf like cpf_up;
 end$
 delimiter ;

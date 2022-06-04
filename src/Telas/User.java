@@ -5,7 +5,10 @@
 package Telas;
 
 import Conexao.DAO;
+import Objetos.CadastroCliente;
 import Objetos.Usuario;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,21 +38,23 @@ public class User extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         txtNomeUsuario = new javax.swing.JTextField();
         jPanel34 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jCadastrar = new javax.swing.JButton();
+        jLimparU2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtCpf = new javax.swing.JFormattedTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel31 = new javax.swing.JPanel();
         jLabel62 = new javax.swing.JLabel();
-        txtConsultaCpfU13 = new javax.swing.JFormattedTextField();
+        txtConsultaCpf = new javax.swing.JFormattedTextField();
         jPanel32 = new javax.swing.JPanel();
         jLabel63 = new javax.swing.JLabel();
-        txtNomeBuscaU13 = new javax.swing.JTextField();
-        bDeletarU13 = new javax.swing.JButton();
-        bAtualizarU13 = new javax.swing.JButton();
+        txtBuscaNome = new javax.swing.JTextField();
+        bDeletarU = new javax.swing.JButton();
+        bAtualizarU = new javax.swing.JButton();
         jLabel64 = new javax.swing.JLabel();
-        txtBuscaNascU13 = new javax.swing.JTextField();
+        txtBuscaSenha = new javax.swing.JTextField();
         bBuscarU = new javax.swing.JButton();
         bLimparU = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -57,6 +62,8 @@ public class User extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/Img/ematch.png")).getImage());
+        setUndecorated(true);
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -68,7 +75,7 @@ public class User extends javax.swing.JFrame {
 
         jLabel14.setText("Nome");
         jPanel33.add(jLabel14);
-        jLabel14.setBounds(11, 24, 31, 16);
+        jLabel14.setBounds(40, 30, 50, 16);
 
         txtNomeUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,27 +83,27 @@ public class User extends javax.swing.JFrame {
             }
         });
         jPanel33.add(txtNomeUsuario);
-        txtNomeUsuario.setBounds(11, 46, 314, 24);
+        txtNomeUsuario.setBounds(40, 50, 314, 22);
 
         jPanel34.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
-        jButton2.setForeground(new java.awt.Color(153, 255, 153));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mole.png"))); // NOI18N
-        jButton2.setText("Cadastrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jCadastrar.setBackground(new java.awt.Color(102, 102, 102));
+        jCadastrar.setForeground(new java.awt.Color(153, 255, 153));
+        jCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mole.png"))); // NOI18N
+        jCadastrar.setText("Cadastrar");
+        jCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jCadastrarActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setForeground(new java.awt.Color(153, 255, 153));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/limpar-limpo.png"))); // NOI18N
-        jButton1.setText("  Limpar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLimparU2.setBackground(new java.awt.Color(102, 102, 102));
+        jLimparU2.setForeground(new java.awt.Color(153, 255, 153));
+        jLimparU2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/limpar-limpo.png"))); // NOI18N
+        jLimparU2.setText("  Limpar");
+        jLimparU2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jLimparU2ActionPerformed(evt);
             }
         });
 
@@ -106,9 +113,9 @@ public class User extends javax.swing.JFrame {
             jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel34Layout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLimparU2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
         jPanel34Layout.setVerticalGroup(
@@ -116,17 +123,17 @@ public class User extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel34Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(jLimparU2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jPanel33.add(jPanel34);
-        jPanel34.setBounds(11, 182, 314, 54);
+        jPanel34.setBounds(40, 190, 314, 68);
 
         jLabel1.setText("Digite uma senha:");
         jPanel33.add(jLabel1);
-        jLabel1.setBounds(11, 76, 94, 16);
+        jLabel1.setBounds(40, 80, 104, 16);
 
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +141,24 @@ public class User extends javax.swing.JFrame {
             }
         });
         jPanel33.add(txtSenha);
-        txtSenha.setBounds(11, 98, 314, 24);
+        txtSenha.setBounds(40, 100, 314, 22);
+
+        jLabel2.setText("CPF");
+        jPanel33.add(jLabel2);
+        jLabel2.setBounds(40, 130, 30, 16);
+
+        try {
+            txtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCpfActionPerformed(evt);
+            }
+        });
+        jPanel33.add(txtCpf);
+        txtCpf.setBounds(40, 150, 110, 22);
 
         jPanel1.add(jPanel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 390, 310));
 
@@ -147,40 +171,40 @@ public class User extends javax.swing.JFrame {
 
         jLabel62.setText("CPF");
         jPanel31.add(jLabel62);
-        jLabel62.setBounds(18, 35, 24, 16);
+        jLabel62.setBounds(18, 35, 30, 16);
 
         try {
-            txtConsultaCpfU13.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtConsultaCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jPanel31.add(txtConsultaCpfU13);
-        txtConsultaCpfU13.setBounds(45, 32, 135, 23);
+        jPanel31.add(txtConsultaCpf);
+        txtConsultaCpf.setBounds(45, 32, 135, 23);
 
         jPanel32.setBackground(new java.awt.Color(255, 255, 255));
         jPanel32.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel63.setText("Nome");
 
-        txtNomeBuscaU13.setOpaque(false);
+        txtBuscaNome.setOpaque(false);
 
-        bDeletarU13.setBackground(new java.awt.Color(102, 102, 102));
-        bDeletarU13.setForeground(new java.awt.Color(153, 255, 153));
-        bDeletarU13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/delete.png"))); // NOI18N
-        bDeletarU13.setText("Deletar");
-        bDeletarU13.addActionListener(new java.awt.event.ActionListener() {
+        bDeletarU.setBackground(new java.awt.Color(102, 102, 102));
+        bDeletarU.setForeground(new java.awt.Color(153, 255, 153));
+        bDeletarU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/delete.png"))); // NOI18N
+        bDeletarU.setText("Deletar");
+        bDeletarU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bDeletarU13ActionPerformed(evt);
+                bDeletarUActionPerformed(evt);
             }
         });
 
-        bAtualizarU13.setBackground(new java.awt.Color(102, 102, 102));
-        bAtualizarU13.setForeground(new java.awt.Color(153, 255, 153));
-        bAtualizarU13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/updated.png"))); // NOI18N
-        bAtualizarU13.setText("Atualizar");
-        bAtualizarU13.addActionListener(new java.awt.event.ActionListener() {
+        bAtualizarU.setBackground(new java.awt.Color(102, 102, 102));
+        bAtualizarU.setForeground(new java.awt.Color(153, 255, 153));
+        bAtualizarU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/updated.png"))); // NOI18N
+        bAtualizarU.setText("Atualizar");
+        bAtualizarU.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAtualizarU13ActionPerformed(evt);
+                bAtualizarUActionPerformed(evt);
             }
         });
 
@@ -193,12 +217,12 @@ public class User extends javax.swing.JFrame {
             .addGroup(jPanel32Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNomeBuscaU13)
-                    .addComponent(txtBuscaNascU13)
+                    .addComponent(txtBuscaNome)
+                    .addComponent(txtBuscaSenha)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel32Layout.createSequentialGroup()
-                        .addComponent(bAtualizarU13, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                        .addComponent(bAtualizarU, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
                         .addGap(12, 12, 12)
-                        .addComponent(bDeletarU13, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bDeletarU, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel32Layout.createSequentialGroup()
                         .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel64)
@@ -212,20 +236,20 @@ public class User extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel63)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNomeBuscaU13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel64)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtBuscaNascU13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBuscaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bDeletarU13, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(bAtualizarU13, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
+                    .addComponent(bDeletarU, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(bAtualizarU, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
                 .addGap(335, 335, 335))
         );
 
         jPanel31.add(jPanel32);
-        jPanel32.setBounds(18, 69, 361, 190);
+        jPanel32.setBounds(18, 69, 373, 190);
 
         bBuscarU.setBackground(new java.awt.Color(102, 102, 102));
         bBuscarU.setForeground(new java.awt.Color(153, 255, 153));
@@ -237,7 +261,7 @@ public class User extends javax.swing.JFrame {
             }
         });
         jPanel31.add(bBuscarU);
-        bBuscarU.setBounds(187, 31, 90, 24);
+        bBuscarU.setBounds(187, 31, 90, 25);
 
         bLimparU.setBackground(new java.awt.Color(102, 102, 102));
         bLimparU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/limpar-limpo.png"))); // NOI18N
@@ -248,7 +272,7 @@ public class User extends javax.swing.JFrame {
             }
         });
         jPanel31.add(bLimparU);
-        bLimparU.setBounds(285, 31, 98, 24);
+        bLimparU.setBounds(285, 31, 98, 25);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -294,43 +318,75 @@ public class User extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bDeletarU13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeletarU13ActionPerformed
-        //deletarCliente(novoCliente);
-    }//GEN-LAST:event_bDeletarU13ActionPerformed
+    private void bDeletarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeletarUActionPerformed
+        Usuario u = new Usuario();
+        DAO dao = new DAO();
+        
+        dao.deleteUsuario(u, txtConsultaCpf.getText());
+        
+        txtConsultaCpf.setText("");
+        txtBuscaNome.setText("");
+        txtBuscaSenha.setText("");
+        
+    }//GEN-LAST:event_bDeletarUActionPerformed
 
-    private void bAtualizarU13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarU13ActionPerformed
-        //atualizarCliente(novoCliente);
-    }//GEN-LAST:event_bAtualizarU13ActionPerformed
+    private void bAtualizarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarUActionPerformed
+        Usuario u = new Usuario();
+        DAO dao = new DAO();
+        
+        u.setNome(txtBuscaNome.getText()); 
+        u.setSenha(txtBuscaSenha.getText());
+        dao.updateUsuario(u, txtConsultaCpf.getText());
+    }//GEN-LAST:event_bAtualizarUActionPerformed
 
     private void bBuscarUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarUActionPerformed
-        //buscarCliente(novoCliente);
+        DAO dao = new DAO();
+        
+        for(Usuario u : dao.readBuscaUsuario(txtConsultaCpf.getText())){
+            
+            txtBuscaNome.setText(u.getNome());
+            txtBuscaSenha.setText(u.getSenha());
+
+        }
     }//GEN-LAST:event_bBuscarUActionPerformed
 
     private void bLimparUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparUActionPerformed
-        //limparCamposBusca();
+        txtConsultaCpf.setText("");
+        txtBuscaNome.setText("");
+        txtBuscaSenha.setText("");
     }//GEN-LAST:event_bLimparUActionPerformed
 
     private void txtNomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeUsuarioActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCadastrarActionPerformed
         Usuario u = new Usuario();
         DAO dao = new DAO();
 
-        u.setNome(txtNomeUsuario.getText());
-        u.setSenha(txtSenha.getText());
-        dao.createUsuario(u);
+        if(dao.checkCpfUsuario(txtCpf.getText())){
+            JOptionPane.showMessageDialog(null, "Cpf já existente!");
+        } else {
+            u.setNome(txtNomeUsuario.getText());
+            u.setSenha(txtSenha.getText());
+            u.setCpf(txtCpf.getText());
+            dao.createUsuario(u);
+        }
+        
 
         txtNomeUsuario.setText("");
         txtSenha.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+        txtCpf.setText("");
+    }//GEN-LAST:event_jCadastrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //limparCamposCadastro();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jLimparU2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLimparU2ActionPerformed
+        txtNomeUsuario.setText("");
+        txtSenha.setText("");
+        txtCpf.setText("");
+    }//GEN-LAST:event_jLimparU2ActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         // TODO add your handling code here:
@@ -339,6 +395,10 @@ public class User extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCpfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,159 +438,31 @@ public class User extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAtualizarU;
-    private javax.swing.JButton bAtualizarU1;
-    private javax.swing.JButton bAtualizarU10;
-    private javax.swing.JButton bAtualizarU11;
-    private javax.swing.JButton bAtualizarU12;
-    private javax.swing.JButton bAtualizarU13;
-    private javax.swing.JButton bAtualizarU2;
-    private javax.swing.JButton bAtualizarU3;
-    private javax.swing.JButton bAtualizarU4;
-    private javax.swing.JButton bAtualizarU5;
-    private javax.swing.JButton bAtualizarU6;
-    private javax.swing.JButton bAtualizarU7;
-    private javax.swing.JButton bAtualizarU8;
-    private javax.swing.JButton bAtualizarU9;
     private javax.swing.JButton bBuscarU;
     private javax.swing.JButton bDeletarU;
-    private javax.swing.JButton bDeletarU1;
-    private javax.swing.JButton bDeletarU10;
-    private javax.swing.JButton bDeletarU11;
-    private javax.swing.JButton bDeletarU12;
-    private javax.swing.JButton bDeletarU13;
-    private javax.swing.JButton bDeletarU2;
-    private javax.swing.JButton bDeletarU3;
-    private javax.swing.JButton bDeletarU4;
-    private javax.swing.JButton bDeletarU5;
-    private javax.swing.JButton bDeletarU6;
-    private javax.swing.JButton bDeletarU7;
-    private javax.swing.JButton bDeletarU8;
-    private javax.swing.JButton bDeletarU9;
     private javax.swing.JButton bLimparU;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jCadastrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
+    private javax.swing.JButton jLimparU2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
-    private javax.swing.JPanel jPanel27;
-    private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel29;
-    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel34;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField txtBuscaNascU;
-    private javax.swing.JTextField txtBuscaNascU1;
-    private javax.swing.JTextField txtBuscaNascU10;
-    private javax.swing.JTextField txtBuscaNascU11;
-    private javax.swing.JTextField txtBuscaNascU12;
-    private javax.swing.JTextField txtBuscaNascU13;
-    private javax.swing.JTextField txtBuscaNascU2;
-    private javax.swing.JTextField txtBuscaNascU3;
-    private javax.swing.JTextField txtBuscaNascU4;
-    private javax.swing.JTextField txtBuscaNascU5;
-    private javax.swing.JTextField txtBuscaNascU6;
-    private javax.swing.JTextField txtBuscaNascU7;
-    private javax.swing.JTextField txtBuscaNascU8;
-    private javax.swing.JTextField txtBuscaNascU9;
-    private javax.swing.JFormattedTextField txtConsultaCpfU;
-    private javax.swing.JFormattedTextField txtConsultaCpfU1;
-    private javax.swing.JFormattedTextField txtConsultaCpfU10;
-    private javax.swing.JFormattedTextField txtConsultaCpfU11;
-    private javax.swing.JFormattedTextField txtConsultaCpfU12;
-    private javax.swing.JFormattedTextField txtConsultaCpfU13;
-    private javax.swing.JFormattedTextField txtConsultaCpfU2;
-    private javax.swing.JFormattedTextField txtConsultaCpfU3;
-    private javax.swing.JFormattedTextField txtConsultaCpfU4;
-    private javax.swing.JFormattedTextField txtConsultaCpfU5;
-    private javax.swing.JFormattedTextField txtConsultaCpfU6;
-    private javax.swing.JFormattedTextField txtConsultaCpfU7;
-    private javax.swing.JFormattedTextField txtConsultaCpfU8;
-    private javax.swing.JFormattedTextField txtConsultaCpfU9;
-    private javax.swing.JTextField txtNomeBuscaU;
-    private javax.swing.JTextField txtNomeBuscaU1;
-    private javax.swing.JTextField txtNomeBuscaU10;
-    private javax.swing.JTextField txtNomeBuscaU11;
-    private javax.swing.JTextField txtNomeBuscaU12;
-    private javax.swing.JTextField txtNomeBuscaU13;
-    private javax.swing.JTextField txtNomeBuscaU2;
-    private javax.swing.JTextField txtNomeBuscaU3;
-    private javax.swing.JTextField txtNomeBuscaU4;
-    private javax.swing.JTextField txtNomeBuscaU5;
-    private javax.swing.JTextField txtNomeBuscaU6;
-    private javax.swing.JTextField txtNomeBuscaU7;
-    private javax.swing.JTextField txtNomeBuscaU8;
-    private javax.swing.JTextField txtNomeBuscaU9;
+    private javax.swing.JTextField txtBuscaNome;
+    private javax.swing.JTextField txtBuscaSenha;
+    private javax.swing.JFormattedTextField txtConsultaCpf;
+    private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JTextField txtNomeUsuario;
     private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
