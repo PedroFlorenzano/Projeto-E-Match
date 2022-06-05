@@ -237,7 +237,7 @@ public class Tela_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btSairActionPerformed
 
     private void bCadastroProdutos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCadastroProdutos1ActionPerformed
-        // TODO add your handling code here:
+        new Produtos().setVisible(true);
     }//GEN-LAST:event_bCadastroProdutos1ActionPerformed
 
     /**
