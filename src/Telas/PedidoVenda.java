@@ -4,6 +4,8 @@
  */
 package Telas;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author phdam
@@ -59,12 +61,13 @@ public class PedidoVenda extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/Img/ematch.png")).getImage());
+        setUndecorated(true);
 
         BuscaCliente2.setBackground(new java.awt.Color(255, 255, 255));
         BuscaCliente2.setBorder(javax.swing.BorderFactory.createTitledBorder("Busca de Clientes"));
         BuscaCliente2.setForeground(new java.awt.Color(153, 255, 153));
 
-        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setText("CPF");
 
         try {
@@ -76,7 +79,6 @@ public class PedidoVenda extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("Nome");
 
         txtBuscaNome2.setOpaque(false);
@@ -101,7 +103,6 @@ public class PedidoVenda extends javax.swing.JFrame {
             }
         });
 
-        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText("Data de Nascimento");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -207,7 +208,6 @@ public class PedidoVenda extends javax.swing.JFrame {
         ConsultaProdutos2.setBackground(new java.awt.Color(255, 255, 255));
         ConsultaProdutos2.setBorder(javax.swing.BorderFactory.createTitledBorder("Consultar Produtos"));
 
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Produto:");
 
         bLimparConsultar7.setBackground(new java.awt.Color(102, 102, 102));
@@ -330,7 +330,6 @@ public class PedidoVenda extends javax.swing.JFrame {
         totalVenda.setBorder(javax.swing.BorderFactory.createTitledBorder("Total de Venda"));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Total da Venda:");
 
         txTotalVenda.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
@@ -410,9 +409,9 @@ public class PedidoVenda extends javax.swing.JFrame {
 
         jPanel1.getAccessibleContext().setAccessibleName("");
         jPanel1.getAccessibleContext().setAccessibleDescription("");
-        CarrinhoDeCompras.getAccessibleContext().setAccessibleName("Carrinho de Compras");
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -420,65 +419,21 @@ public class PedidoVenda extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void bDeletarCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeletarCliente2ActionPerformed
-        CadastroCliente c = new CadastroCliente();
-        DAO dao = new DAO();
-
-        dao.deleteCliente(c, txtConsultaCpf2.getText());
-
-        txtConsultaCpf2.setText("");
-        txtBuscaNome2.setText("");
-        txtBuscaNasc2.setText("");
-        txtBuscaTelefone.setText("");
-        txtBuscaSexo.setText("");
-        txtBuscaCep.setText("");
-        txtBuscaEndereco.setText("");
-        txtBuscaCidade.setText("");
-        txtBuscaEstado.setText("");
+        
     }//GEN-LAST:event_bDeletarCliente2ActionPerformed
 
     private void bAtualizarCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarCliente2ActionPerformed
-        CadastroCliente c = new CadastroCliente();
-        DAO dao = new DAO();
-
-        c.setNomeCompleto(txtBuscaNome2.getText());
-        c.setDataNascimento(txtBuscaNasc2.getText());
-        c.setSexo((String)txtBuscaSexo.getText());
-        c.setTelefone(txtBuscaTelefone.getText());
-        c.setCep(txtBuscaCep.getText());
-        c.setEndereco(txtBuscaEndereco.getText());
-        c.setCidade(txtBuscaCidade.getText());
-        c.setEstado((String)txtBuscaEstado.getText());
-        dao.updateCliente(c, txtConsultaCpf2.getText());
+        
 
     }//GEN-LAST:event_bAtualizarCliente2ActionPerformed
 
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
 
-        DAO dao = new DAO();
-
-        for(CadastroCliente c : dao.readBuscaCliente(txtConsultaCpf2.getText())){
-
-            txtBuscaNome2.setText(c.getNomeCompleto());
-            txtBuscaNasc2.setText(c.getDataNascimento());
-            txtBuscaTelefone.setText(c.getTelefone());
-            txtBuscaSexo.setText(c.getSexo());
-            txtBuscaCep.setText(c.getCep());
-            txtBuscaEndereco.setText(c.getEndereco());
-            txtBuscaCidade.setText(c.getCidade());
-            txtBuscaEstado.setText(c.getEstado());
-        }
+       
     }//GEN-LAST:event_bBuscarActionPerformed
 
     private void bLimparBusca2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparBusca2ActionPerformed
-        txtConsultaCpf2.setText("");
-        txtBuscaNome2.setText("");
-        txtBuscaNasc2.setText("");
-        txtBuscaTelefone.setText("");
-        txtBuscaSexo.setText("");
-        txtBuscaCep.setText("");
-        txtBuscaEndereco.setText("");
-        txtBuscaCidade.setText("");
-        txtBuscaEstado.setText("");
+       
     }//GEN-LAST:event_bLimparBusca2ActionPerformed
 
     private void bLimparConsultar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparConsultar7ActionPerformed
@@ -530,66 +485,24 @@ public class PedidoVenda extends javax.swing.JFrame {
     private javax.swing.JPanel ConsultaProdutos2;
     private javax.swing.JButton bAtualizarCliente2;
     private javax.swing.JButton bBuscar;
-    private javax.swing.JButton bBuscar1;
-    private javax.swing.JButton bBuscar2;
-    private javax.swing.JButton bBuscar3;
-    private javax.swing.JButton bBuscar4;
-    private javax.swing.JButton bBuscar5;
-    private javax.swing.JButton bBuscar6;
     private javax.swing.JButton bBuscar8;
     private javax.swing.JButton bDeletarCliente2;
     private javax.swing.JButton bLimparBusca2;
-    private javax.swing.JButton bLimparConsultar;
-    private javax.swing.JButton bLimparConsultar1;
-    private javax.swing.JButton bLimparConsultar2;
-    private javax.swing.JButton bLimparConsultar3;
-    private javax.swing.JButton bLimparConsultar4;
-    private javax.swing.JButton bLimparConsultar5;
     private javax.swing.JButton bLimparConsultar7;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JTable jTProdutos;
-    private javax.swing.JTable jTProdutos1;
-    private javax.swing.JTable jTProdutos2;
-    private javax.swing.JTable jTProdutos3;
-    private javax.swing.JTable jTProdutos4;
-    private javax.swing.JTable jTProdutos5;
     private javax.swing.JTable jTProdutos7;
     private javax.swing.JTable jTProdutos8;
     private javax.swing.JPanel totalVenda;
@@ -597,12 +510,6 @@ public class PedidoVenda extends javax.swing.JFrame {
     private javax.swing.JTextField txtBuscaNasc2;
     private javax.swing.JTextField txtBuscaNome2;
     private javax.swing.JFormattedTextField txtConsultaCpf2;
-    private javax.swing.JTextField txtConsultaProduto;
-    private javax.swing.JTextField txtConsultaProduto1;
-    private javax.swing.JTextField txtConsultaProduto2;
-    private javax.swing.JTextField txtConsultaProduto3;
-    private javax.swing.JTextField txtConsultaProduto4;
-    private javax.swing.JTextField txtConsultaProduto5;
     private javax.swing.JTextField txtConsultaProduto7;
     // End of variables declaration//GEN-END:variables
 }
