@@ -79,6 +79,41 @@ public class DAO {
         return produtos;
     }
     
+//    public List<Produto> updateProduto(int id){
+//        
+//        Connection con = ConnectionFactory.getConnection();
+//        PreparedStatement stmt = null;
+//        ResultSet rs = null;
+//        
+//        List<Produto> produtos = new ArrayList<>();
+//        
+//        try {
+//            stmt = con.prepareStatement("CALL updateProduto(?,?,?,?,?,?,?)");
+//            stmt.setString(1, "%" + id + "%"); 
+//            rs = stmt.executeQuery();
+//            
+//            while(rs.next()){
+//                
+//                Produto produto = new Produto();
+//                
+//                produto.setNome(rs.setString(1, p.getNome()));
+//                produto.setDescricao(rs.getString("descricao"));
+//                produto.setValor_custo(rs.getFloat("valor_custo"));
+//                produto.setValor_venda(rs.getFloat("valor_venda"));
+//                produto.setTamanho_camisa(rs.getString("tamanho"));
+//                produto.setQuantidade(rs.getInt("quantidade"));
+//                produtos.add(produto);
+//            }
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            ConnectionFactory.CloseConnection(con, stmt, rs);
+//        }
+//        
+//        return produtos;
+//    }
+    
     public List<Produto> readBusca(String nome){
         
         Connection con = ConnectionFactory.getConnection();

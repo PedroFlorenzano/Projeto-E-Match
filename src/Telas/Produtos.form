@@ -374,7 +374,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="txtConsultaProduto" min="-2" pref="191" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="bLimparConsultar" min="-2" pref="94" max="-2" attributes="0"/>
+                                  <Component id="bLimpar" min="-2" pref="94" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                   <Component id="bBuscar" max="32767" attributes="0"/>
                               </Group>
@@ -396,7 +396,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtConsultaProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="bLimparConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="bBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -421,7 +421,7 @@
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator1">
                 </Component>
-                <Component class="javax.swing.JButton" name="bLimparConsultar">
+                <Component class="javax.swing.JButton" name="bLimpar">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="66" red="66" type="rgb"/>
@@ -432,7 +432,7 @@
                     <Property name="text" type="java.lang.String" value="LIMPAR"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bLimparConsultarActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bLimparActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="bBuscar">

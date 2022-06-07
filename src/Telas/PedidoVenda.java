@@ -4,7 +4,12 @@
  */
 package Telas;
 
+import Conexao.DAO;
+import Objetos.CadastroCliente;
+import Objetos.Produto;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -17,6 +22,30 @@ public class PedidoVenda extends javax.swing.JFrame {
      */
     public PedidoVenda() {
         initComponents();
+        DefaultTableModel modelo = (DefaultTableModel) jTProdutos2.getModel();
+        jTProdutos2.setRowSorter(new TableRowSorter(modelo));
+        readProduto();
+    }
+    
+    public void readProduto(){
+        
+        DefaultTableModel modelo = (DefaultTableModel) jTProdutos2.getModel();
+        modelo.setNumRows(0);
+        DAO pdao = new DAO();
+        
+        for (Produto p : pdao.read()) {
+            
+            modelo.addRow(new Object[]{
+                
+                p.getId_produto(),
+                p.getNome(),
+                p.getDescricao(),
+                p.getValor_venda(),
+                p.getTamanho_camisa(),
+                p.getQuantidade()
+                
+            });
+        }
     }
 
     /**
@@ -35,7 +64,8 @@ public class PedidoVenda extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         txtBuscaNome2 = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        txtBuscaNasc2 = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtBuscaEndereco2 = new javax.swing.JTextArea();
         bBuscar = new javax.swing.JButton();
         bLimparBusca2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -46,7 +76,7 @@ public class PedidoVenda extends javax.swing.JFrame {
         bLimparConsultar7 = new javax.swing.JButton();
         bBuscar8 = new javax.swing.JButton();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTProdutos8 = new javax.swing.JTable();
+        jTProdutos2 = new javax.swing.JTable();
         CarrinhoDeCompras = new javax.swing.JPanel();
         jSeparator7 = new javax.swing.JSeparator();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -81,7 +111,12 @@ public class PedidoVenda extends javax.swing.JFrame {
 
         txtBuscaNome2.setOpaque(false);
 
-        jLabel29.setText("Data de Nascimento");
+        jLabel29.setText("Endereço");
+
+        txtBuscaEndereco2.setColumns(20);
+        txtBuscaEndereco2.setRows(5);
+        txtBuscaEndereco2.setOpaque(false);
+        jScrollPane3.setViewportView(txtBuscaEndereco2);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -91,12 +126,12 @@ public class PedidoVenda extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtBuscaNome2)
-                    .addComponent(txtBuscaNasc2)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel24)
                             .addComponent(jLabel29))
-                        .addGap(0, 372, Short.MAX_VALUE)))
+                        .addGap(0, 433, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -109,8 +144,8 @@ public class PedidoVenda extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtBuscaNasc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         bBuscar.setBackground(new java.awt.Color(102, 102, 102));
@@ -200,23 +235,23 @@ public class PedidoVenda extends javax.swing.JFrame {
             }
         });
 
-        jTProdutos8.setModel(new javax.swing.table.DefaultTableModel(
+        jTProdutos2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Produto", "Descrição", "Custo", "Venda", "Tamanho", "Quantidade"
+                "ID", "Produto", "Descrição", "Venda", "Tamanho", "Quantidade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, true, false, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane9.setViewportView(jTProdutos8);
+        jScrollPane9.setViewportView(jTProdutos2);
 
         javax.swing.GroupLayout ConsultaProdutos2Layout = new javax.swing.GroupLayout(ConsultaProdutos2);
         ConsultaProdutos2.setLayout(ConsultaProdutos2Layout);
@@ -391,12 +426,21 @@ public class PedidoVenda extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
-
+        DAO dao = new DAO();
+        
+        for(CadastroCliente c : dao.readBuscaCliente(txtConsultaCpf2.getText())){
+            
+            txtBuscaNome2.setText(c.getNomeCompleto());
+            txtBuscaEndereco2.setText(c.getEndereco());
+            
+        }
        
     }//GEN-LAST:event_bBuscarActionPerformed
 
     private void bLimparBusca2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparBusca2ActionPerformed
-       
+        txtConsultaCpf2.setText("");
+        txtBuscaNome2.setText("");
+        txtBuscaEndereco2.setText("");
     }//GEN-LAST:event_bLimparBusca2ActionPerformed
 
     private void bLimparConsultar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparConsultar7ActionPerformed
@@ -460,15 +504,16 @@ public class PedidoVenda extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JTable jTProdutos2;
     private javax.swing.JTable jTProdutos7;
-    private javax.swing.JTable jTProdutos8;
     private javax.swing.JPanel totalVenda;
     private javax.swing.JLabel txTotalVenda;
-    private javax.swing.JTextField txtBuscaNasc2;
+    private javax.swing.JTextArea txtBuscaEndereco2;
     private javax.swing.JTextField txtBuscaNome2;
     private javax.swing.JFormattedTextField txtConsultaCpf2;
     private javax.swing.JTextField txtConsultaProduto7;

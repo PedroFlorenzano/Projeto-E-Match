@@ -48,6 +48,7 @@ public class Produtos extends javax.swing.JFrame {
         }
     }
     
+    
     public void readBuscaProduto(String nome){
         
         DefaultTableModel modelo = (DefaultTableModel) jTProdutos.getModel();
@@ -69,6 +70,8 @@ public class Produtos extends javax.swing.JFrame {
             });
         }
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -102,7 +105,7 @@ public class Produtos extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtConsultaProduto = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        bLimparConsultar = new javax.swing.JButton();
+        bLimpar = new javax.swing.JButton();
         bBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTProdutos = new javax.swing.JTable();
@@ -272,12 +275,12 @@ public class Produtos extends javax.swing.JFrame {
 
         jLabel8.setText("Produto:");
 
-        bLimparConsultar.setBackground(new java.awt.Color(102, 102, 102));
-        bLimparConsultar.setForeground(new java.awt.Color(153, 255, 153));
-        bLimparConsultar.setText("LIMPAR");
-        bLimparConsultar.addActionListener(new java.awt.event.ActionListener() {
+        bLimpar.setBackground(new java.awt.Color(102, 102, 102));
+        bLimpar.setForeground(new java.awt.Color(153, 255, 153));
+        bLimpar.setText("LIMPAR");
+        bLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bLimparConsultarActionPerformed(evt);
+                bLimparActionPerformed(evt);
             }
         });
 
@@ -320,7 +323,7 @@ public class Produtos extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtConsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(bLimparConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
                         .addComponent(bBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -337,7 +340,7 @@ public class Produtos extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txtConsultaProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bLimparConsultar)
+                    .addComponent(bLimpar)
                     .addComponent(bBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -425,9 +428,9 @@ public class Produtos extends javax.swing.JFrame {
         txtQtd.setText("");
     }//GEN-LAST:event_bCadastrarProdutoActionPerformed
 
-    private void bLimparConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparConsultarActionPerformed
+    private void bLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLimparActionPerformed
         txtConsultaProduto.setText("");
-    }//GEN-LAST:event_bLimparConsultarActionPerformed
+    }//GEN-LAST:event_bLimparActionPerformed
     
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
         readBuscaProduto(txtConsultaProduto.getText());
@@ -475,7 +478,7 @@ public class Produtos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bBuscar;
     private javax.swing.JButton bCadastrarProduto;
-    private javax.swing.JButton bLimparConsultar;
+    private javax.swing.JButton bLimpar;
     private javax.swing.JButton bVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
