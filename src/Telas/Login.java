@@ -117,7 +117,7 @@ public class Login extends javax.swing.JFrame {
 
         bExit.setBackground(new java.awt.Color(102, 102, 102));
         bExit.setForeground(new java.awt.Color(153, 255, 153));
-        bExit.setText("Exit");
+        bExit.setText("Sair");
         bExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bExitActionPerformed(evt);

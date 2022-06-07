@@ -34,8 +34,6 @@ public class PedidoVenda extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         txtBuscaNome2 = new javax.swing.JTextField();
-        bDeletarCliente2 = new javax.swing.JButton();
-        bAtualizarCliente2 = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         txtBuscaNasc2 = new javax.swing.JTextField();
         bBuscar = new javax.swing.JButton();
@@ -83,26 +81,6 @@ public class PedidoVenda extends javax.swing.JFrame {
 
         txtBuscaNome2.setOpaque(false);
 
-        bDeletarCliente2.setBackground(new java.awt.Color(102, 102, 102));
-        bDeletarCliente2.setForeground(new java.awt.Color(153, 255, 153));
-        bDeletarCliente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/delete.png"))); // NOI18N
-        bDeletarCliente2.setText("Deletar");
-        bDeletarCliente2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bDeletarCliente2ActionPerformed(evt);
-            }
-        });
-
-        bAtualizarCliente2.setBackground(new java.awt.Color(102, 102, 102));
-        bAtualizarCliente2.setForeground(new java.awt.Color(153, 255, 153));
-        bAtualizarCliente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/updated.png"))); // NOI18N
-        bAtualizarCliente2.setText("Atualizar");
-        bAtualizarCliente2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAtualizarCliente2ActionPerformed(evt);
-            }
-        });
-
         jLabel29.setText("Data de Nascimento");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -114,13 +92,11 @@ public class PedidoVenda extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtBuscaNome2)
                     .addComponent(txtBuscaNasc2)
-                    .addComponent(bAtualizarCliente2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel24)
                             .addComponent(jLabel29))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(bDeletarCliente2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 372, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -134,11 +110,7 @@ public class PedidoVenda extends javax.swing.JFrame {
                 .addComponent(jLabel29)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtBuscaNasc2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bAtualizarCliente2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bDeletarCliente2)
-                .addContainerGap())
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         bBuscar.setBackground(new java.awt.Color(102, 102, 102));
@@ -355,7 +327,7 @@ public class PedidoVenda extends javax.swing.JFrame {
                 .addGroup(totalVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txTotalVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Opção");
@@ -401,9 +373,9 @@ public class PedidoVenda extends javax.swing.JFrame {
                             .addComponent(BuscaCliente2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(CarrinhoDeCompras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ConsultaProdutos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(totalVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ConsultaProdutos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(totalVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -417,15 +389,6 @@ public class PedidoVenda extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void bDeletarCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeletarCliente2ActionPerformed
-        
-    }//GEN-LAST:event_bDeletarCliente2ActionPerformed
-
-    private void bAtualizarCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAtualizarCliente2ActionPerformed
-        
-
-    }//GEN-LAST:event_bAtualizarCliente2ActionPerformed
 
     private void bBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarActionPerformed
 
@@ -483,10 +446,8 @@ public class PedidoVenda extends javax.swing.JFrame {
     private javax.swing.JPanel BuscaCliente2;
     private javax.swing.JPanel CarrinhoDeCompras;
     private javax.swing.JPanel ConsultaProdutos2;
-    private javax.swing.JButton bAtualizarCliente2;
     private javax.swing.JButton bBuscar;
     private javax.swing.JButton bBuscar8;
-    private javax.swing.JButton bDeletarCliente2;
     private javax.swing.JButton bLimparBusca2;
     private javax.swing.JButton bLimparConsultar7;
     private javax.swing.JLabel jLabel1;

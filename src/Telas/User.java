@@ -115,8 +115,8 @@ public class User extends javax.swing.JFrame {
                 .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(jLimparU2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addComponent(jCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addComponent(jCadastrar)
+                .addGap(29, 29, 29))
         );
         jPanel34Layout.setVerticalGroup(
             jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,7 +261,7 @@ public class User extends javax.swing.JFrame {
             }
         });
         jPanel31.add(bBuscarU);
-        bBuscarU.setBounds(187, 31, 90, 25);
+        bBuscarU.setBounds(187, 31, 100, 25);
 
         bLimparU.setBackground(new java.awt.Color(102, 102, 102));
         bLimparU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/limpar-limpo.png"))); // NOI18N
@@ -272,7 +272,7 @@ public class User extends javax.swing.JFrame {
             }
         });
         jPanel31.add(bLimparU);
-        bLimparU.setBounds(285, 31, 98, 25);
+        bLimparU.setBounds(292, 31, 100, 25);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
