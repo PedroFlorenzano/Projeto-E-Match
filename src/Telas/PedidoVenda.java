@@ -330,16 +330,13 @@ public class PedidoVenda extends javax.swing.JFrame {
                 .addGroup(CarrinhoDeComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btSelecionarCamiseta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(CarrinhoDeComprasLayout.createSequentialGroup()
-                        .addGroup(CarrinhoDeComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(CarrinhoDeComprasLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(117, 117, 117)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(CarrinhoDeComprasLayout.createSequentialGroup()
-                                .addComponent(txtCamisetas, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel2)
+                        .addGap(117, 117, 117)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CarrinhoDeComprasLayout.createSequentialGroup()
+                        .addComponent(txtCamisetas, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         CarrinhoDeComprasLayout.setVerticalGroup(
@@ -364,6 +361,8 @@ public class PedidoVenda extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Total da Venda:");
 
+        txtTotalVenda.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtTotalVenda.setForeground(new java.awt.Color(204, 0, 0));
         txtTotalVenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTotalVendaActionPerformed(evt);
