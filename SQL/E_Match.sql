@@ -33,6 +33,17 @@ create table if not exists Produto  (
     quantidade int not null
 );
 
+create table if not exists Pedido
+(
+	id integer primary key auto_increment,
+    cliente_id int,
+    produto_id int,
+    quantidade char(14) not null,
+    
+    foreign key (cliente_id) references Cliente(id),
+    foreign key (produto_id) references Produto(id)
+);
+
 delimiter $
 create procedure novoCliente(
 	nome_completo varchar(50),
@@ -93,7 +104,8 @@ delimiter ;
 
 delimiter $
 create procedure updateProduto(
-	nome_up varchar(100),
+	id_up int,
+    nome_up varchar(100),
 	descricao_up varchar(250),
 	valor_custo_up float (5,2),
 	valor_venda_up float (5,2),
@@ -107,7 +119,8 @@ begin
     valor_custo = valor_custo_up, 
     valor_venda = valor_venda_up,
     tamanho = tamanho_up,
-    quantidade = quantidade_up;
+    quantidade = quantidade_up
+    where id_up = id;
     
 end$
 delimiter ;
